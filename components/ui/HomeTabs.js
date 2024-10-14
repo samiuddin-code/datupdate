@@ -81,31 +81,33 @@ const HomeTabs = () => {
 
                     <div className="relative z-20 flex pt-8">
                         <Box className="w-1/3 m-auto">
-                            <div className="flex justify-between">
+                            <div className="flex justify-between text-white">
                                 {tabs.map(tab => (
-                                    <Button
-                                        key={tab.id}
-                                        onClick={() => setActiveTab(tab.id)}
-                                        variant={activeTab === tab.id ? "contained" : "outlined"}
-                                        style={{
-                                            flex: 1,
-                                            margin: '0 5px',
-                                            textTransform: 'capitalize',
-                                            backgroundColor: activeTab === tab.id ? '#137749' : 'rgba(76, 175, 80, 0.3)', // Green with opacity
-                                            color: 'white', // Default text color is white
-                                            border: `1px solid white`, // White border for all buttons
-                                            opacity: activeTab === tab.id ? 1 : 1.0, // Slightly transparent for inactive buttons
-                                            transition: 'background-color 0.3s ease', // Smooth transition for hover effect
-                                        }}
-                                    >
-                                        {tab.label}
-                                    </Button>
+                             <Button
+                             key={tab.id}
+                             onClick={() => setActiveTab(tab.id)}
+                             variant={activeTab === tab.id ? "contained" : "outlined"}
+                             style={{
+                                 flex: 1,
+                                 margin: '0 5px',
+                                 textTransform: 'capitalize',
+                                 backgroundColor: activeTab === tab.id ? '#137749' : 'transparent', 
+                                 color: 'white', // White text color
+                                 borderRadius: '25px',
+                                 border: `1px solid white`, // White border for all buttons
+                                 opacity: activeTab === tab.id ? 1 : 0.8, // Slightly transparent for inactive buttons
+                                 transition: 'background-color 0.2s ease', // Smooth transition for hover effect
+                             }}
+                         >
+                             {tab.label}
+                         </Button>
+                         
                                 ))}
                             </div>
                         </Box>
                     </div>
 
-                    <Box className="w-2/3 relative text-white text-lg pt-20 mr-4 rounded-lg mx-auto">
+                    <Box className="w-2/3 relative text-white text-lg pt-20 mr-4 rounded-lg mx-auto transform scale-100 group-hover:scale-110 transition-all duration-300 custom-transition">
                         <Typography variant="h6">{activeTabData.content}</Typography>
                     </Box>
                 </Box>
