@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link'; // Import Link for routing
 
 const KsaBanner = () => {
     const containerRefs = useRef([]);
@@ -69,6 +70,15 @@ const KsaBanner = () => {
                         <h3 className="text-lg md:text-xl font-light text-white drop-shadow-md mt-2">
                             {index === 0 ? "Townhouse Lara Community, Mohammadiya, KSA" : index === 1 ? "White Pearl Villa, Pearl Jumeirah, Dubai" : "Private Mansion, District One"}
                         </h3>
+                    </div>
+
+                    {/* Add Button Here */}
+                    <div className="absolute right-8 bottom-8 z-30">
+                        <Link href={`/projects/residential`}>
+                            <div className="bg-white text-gray-900 text-lg font-semibold rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-transform duration-300 hover:scale-110">
+                                &#10132; {/* Right Arrow Icon */}
+                            </div>
+                        </Link>
                     </div>
                 </div>
             ))}
